@@ -21,7 +21,7 @@ func TestLocation(t *testing.T) {
 		"2006-01-02 15:04:05",
 		curDateTimeStr)
 	if errParse == nil {
-		t.Log("Parsed Local DateTime String Without Timezone: ", parsedTime.String())
+		t.Log("Parsed Local DateTime String without Timezone: ", parsedTime.String())
 	}
 
 	parsedTime, errParse = time.ParseInLocation(
@@ -29,14 +29,14 @@ func TestLocation(t *testing.T) {
 		curDateTimeStr,
 		GetTimezone("Asia/Shanghai"))
 	if errParse == nil {
-		t.Log("Parsed Local DateTime String With Timezone: ", parsedTime.String())
+		t.Log("Parsed Local DateTime String with Timezone: ", parsedTime.String())
 	}
 
 	parsedTime, errParse = time.Parse(
 		time.RFC3339,
 		time.Now().Format(time.RFC3339))
 	if errParse == nil {
-		t.Log("Parsed Local RFC3339 String Without Timezone: ", parsedTime.String())
+		t.Log("Parsed Local RFC3339 String without Timezone: ", parsedTime.String())
 	}
 
 	parsedTime, errParse = time.ParseInLocation(
@@ -44,14 +44,14 @@ func TestLocation(t *testing.T) {
 		time.Now().Format(time.RFC3339),
 		GetTimezone("US/Hawaii"))
 	if errParse == nil {
-		t.Log("Parsed Local RFC3339 String With Another Timezone: ", parsedTime.String())
+		t.Log("Parsed Local RFC3339 String with another Timezone: ", parsedTime.String())
 	}
 
 	parsedTime, errParse = time.Parse(
 		time.RFC3339,
 		time.Now().In(GetTimezone("US/Hawaii")).Format(time.RFC3339))
 	if errParse == nil {
-		t.Log("Parsed US/Hawaii RFC3339 String Without Timezone: ", parsedTime.String())
+		t.Log("Parsed US/Hawaii RFC3339 String without Timezone: ", parsedTime.String())
 	}
 
 	parsedTime, errParse = time.ParseInLocation(
@@ -59,13 +59,16 @@ func TestLocation(t *testing.T) {
 		time.Now().In(GetTimezone("US/Hawaii")).Format(time.RFC3339),
 		GetTimezone("Asia/Shanghai"))
 	if errParse == nil {
-		t.Log("Parsed US/Hawaii RFC3339 String With Another Timezone: ", parsedTime.String())
+		t.Log("Parsed US/Hawaii RFC3339 String with another Timezone: ", parsedTime.String())
 	}
 
 	curUnixTs := time.Now().Unix()
 	t.Log("Local UNIX Timestamp: ", curUnixTs)
 
-	t.Log("Parsed Local UNIX Timestamp Without Timezone: ", time.Unix(curUnixTs, 0).String())
-	t.Log("Parsed Local UNIX Timestamp With UTC Timezone: ", time.Unix(curUnixTs, 0).
+	t.Log("Parsed Local UNIX Timestamp without Timezone: ", time.Unix(curUnixTs, 0).String())
+	t.Log("Parsed Local UNIX Timestamp with UTC Timezone: ", time.Unix(curUnixTs, 0).
 		In(time.UTC).String())
+
+	anotherUnixTs := time.Now().In(GetTimezone("US/Hawaii")).Unix()
+	t.Log("UNIX Timestamp with another Timezone: ", anotherUnixTs)
 }

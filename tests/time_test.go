@@ -65,7 +65,7 @@ func TestLocation(t *testing.T) {
 	curUnixTs := time.Now().Unix()
 	t.Log("Local UNIX Timestamp: ", curUnixTs)
 
-	t.Log("Parsed Local UNIX Timestamp Without Timezone", time.Unix(curUnixTs, 0).String())
-	t.Log("Parsed Local UNIX Timestamp With UTC Timezone", time.Unix(curUnixTs, 0).
+	t.Log("Parsed Local UNIX Timestamp Without Timezone: ", time.Unix(curUnixTs, 0).String())
+	t.Log("Parsed Local UNIX Timestamp With UTC Timezone: ", time.Unix(curUnixTs, 0).
 		In(time.UTC).String())
 }

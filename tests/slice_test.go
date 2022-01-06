@@ -18,3 +18,25 @@ func TestArraySlice(t *testing.T) {
 	t.Log(len(slice1))
 	t.Log(cap(slice1))
 }
+
+func TestEmptyArray(t *testing.T) {
+	var arr1 [3][3]int
+	t.Log(arr1)
+
+	var arr2 [][3]int
+	t.Log(arr2)
+	t.Log(arr2 == nil)
+}
+
+func TestEmptySlice(t *testing.T) {
+	var arr1 [][]int
+	t.Log(arr1)
+	t.Log(arr1 == nil)
+
+	arr2 := make([][]int, 3)
+	t.Log(arr2)
+	t.Log(arr2 == nil)
+	for _, el2 := range arr2 {
+		t.Log(el2 == nil)
+	}
+}

@@ -42,6 +42,14 @@ func TestLocation(t *testing.T) {
 	parsedTime, errParse = time.ParseInLocation(
 		time.RFC3339,
 		time.Now().Format(time.RFC3339),
+		GetTimezone("Asia/Shanghai"))
+	if errParse == nil {
+		t.Log("Parsed Local RFC3339 String with Timezone: ", parsedTime.String())
+	}
+
+	parsedTime, errParse = time.ParseInLocation(
+		time.RFC3339,
+		time.Now().Format(time.RFC3339),
 		GetTimezone("US/Hawaii"))
 	if errParse == nil {
 		t.Log("Parsed Local RFC3339 String with another Timezone: ", parsedTime.String())
@@ -52,6 +60,14 @@ func TestLocation(t *testing.T) {
 		time.Now().In(GetTimezone("US/Hawaii")).Format(time.RFC3339))
 	if errParse == nil {
 		t.Log("Parsed US/Hawaii RFC3339 String without Timezone: ", parsedTime.String())
+	}
+
+	parsedTime, errParse = time.ParseInLocation(
+		time.RFC3339,
+		time.Now().In(GetTimezone("US/Hawaii")).Format(time.RFC3339),
+		GetTimezone("US/Hawaii"))
+	if errParse == nil {
+		t.Log("Parsed US/Hawaii RFC3339 String with Timezone: ", parsedTime.String())
 	}
 
 	parsedTime, errParse = time.ParseInLocation(

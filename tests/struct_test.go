@@ -98,6 +98,9 @@ func TestAccessField(t *testing.T) {
 		"",
 	}
 	t.Log(demoStruct4.Foo)
+
+	//error
+	//t.Log(demoStruct4.BaseStruct.Bar)
 }
 
 func TestTag(t *testing.T) {

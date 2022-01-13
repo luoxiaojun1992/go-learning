@@ -19,4 +19,10 @@ func TestMapComparison(t *testing.T) {
 	//map1 == map2
 	//map1 == map3
 	//map2 == map3
+
+	var map1 map[string]string
+	map2 := make(map[string]string)
+	map1 = map2
+	map2["foo"] = "bar"
+	t.Log(map1["foo"])
 }

@@ -12,4 +12,7 @@ func TestError(t *testing.T)  {
 	t.Log(errors.Is(err2, err1))
 	t.Log(errors.As(err2, &err1))
 	t.Log(err2.Error())
+
+	var emptyError error
+	t.Log(emptyError == nil)
 }

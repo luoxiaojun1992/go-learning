@@ -53,6 +53,11 @@ func GeneralHello(demo DemoInterface) string {
 	return demo.hello()
 }
 
+func TestEmptyStruct(t *testing.T) {
+	var demoStruct DemoStruct
+	t.Log(demoStruct)
+}
+
 func TestAccessField(t *testing.T) {
 	demoStruct := new(DemoStruct)
 	demoStruct.Name = "test struct"

@@ -68,4 +68,7 @@ func TestVar(t *testing.T) {
 	t.Log([...][3]int{{1,2,3}, {1,2,3}})
 	//Error example
 	//t.Log([...][...]int{{1,2,3}, {1,2,3}})
+
+	var i int
+	t.Log(i == 0)
 }

@@ -2,7 +2,7 @@ package tests
 
 import "testing"
 
-func TestMapComparison(t *testing.T) {
+func TestChannelComparison(t *testing.T) {
 	var ch1 chan int
 	var ch2 chan int
 	ch1 = make(chan int)

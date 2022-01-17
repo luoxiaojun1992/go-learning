@@ -8,6 +8,9 @@ func TestEmptyMap(t *testing.T) {
 
 	map2 := make(map[int]int)
 	t.Log(map2 == nil)
+
+	map3 := make(map[string]string)
+	t.Log(map3["foobar"])
 }
 
 func TestMapComparison(t *testing.T) {

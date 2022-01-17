@@ -92,6 +92,7 @@ func TestAccessField(t *testing.T) {
 	demoStruct3.BaseStruct.Age = 1
 	t.Log(demoStruct3.BaseStruct.Age)
 
+	//need all field values
 	demoStruct4 := DemoStruct{
 		"test struct foo 2",
 		"",

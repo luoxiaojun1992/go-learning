@@ -61,6 +61,10 @@ func TestVar(t *testing.T) {
 	t.Log(tv12)
 	t.Log(tv13)
 
+	tv14, tv15 := 1, "2"
+	t.Log(tv14)
+	t.Log(tv15)
+
 	t.Log([3]int{1,2,3} == [3]int{1,2,3})
 	t.Log([...]int{1,2,3})
 	t.Log([...]int{})
@@ -71,4 +75,8 @@ func TestVar(t *testing.T) {
 
 	var i int
 	t.Log(i == 0)
+
+	type Foo struct {}
+	var bar *Foo
+	t.Log(bar == nil)
 }

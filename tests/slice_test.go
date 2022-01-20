@@ -19,6 +19,12 @@ func TestArraySlice(t *testing.T) {
 	t.Log(cap(slice1))
 }
 
+func TestMapSlice(t *testing.T)  {
+	s := make([]map[string]string, 5)
+	s[0] = map[string]string{"foo":"bar"}
+	t.Log(s)
+}
+
 func TestEmptyArray(t *testing.T) {
 	var arr1 [3][3]int
 	t.Log(arr1)

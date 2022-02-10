@@ -45,4 +45,16 @@ func TestEmptySlice(t *testing.T) {
 	for _, el2 := range arr2 {
 		t.Log(el2 == nil)
 	}
+
+	arr3 := make([]int, 3)
+	t.Log(arr3)
+	t.Log(arr3 == nil)
+
+	arr4 := make([]int, 0)
+	t.Log(arr4)
+	t.Log(arr4 == nil)
+
+	var arr5 []int
+	t.Log(arr5 == nil)
+	t.Log(append(arr5, 1))
 }

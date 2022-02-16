@@ -53,6 +53,14 @@ func GeneralHello(demo DemoInterface) string {
 	return demo.hello()
 }
 
+func AccessDemoStruct(demo DemoStruct) string {
+	return demo.Foo
+}
+
+func AccessBaseStruct(base BaseStruct) string {
+	return base.Name
+}
+
 func TestEmptyStruct(t *testing.T) {
 	var demoStruct DemoStruct
 	t.Log(demoStruct)
@@ -107,6 +115,17 @@ func TestAccessField(t *testing.T) {
 
 	//error
 	//t.Log(demoStruct4.BaseStruct.Bar)
+
+	demoStruct5 := DemoStruct{
+		Foo: "foo",
+		BaseStruct: BaseStruct{
+			Name: "name",
+		},
+	}
+	t.Log(AccessDemoStruct(demoStruct5))
+	//error
+	//t.Log(AccessBaseStruct(demoStruct5))
+	t.Log(AccessBaseStruct(demoStruct5.BaseStruct))
 }
 
 func TestTag(t *testing.T) {

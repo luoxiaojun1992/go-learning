@@ -65,18 +65,32 @@ func TestVar(t *testing.T) {
 	t.Log(tv14)
 	t.Log(tv15)
 
-	t.Log([3]int{1,2,3} == [3]int{1,2,3})
-	t.Log([...]int{1,2,3})
+	t.Log([3]int{1, 2, 3} == [3]int{1, 2, 3})
+	t.Log([...]int{1, 2, 3})
 	t.Log([...]int{})
 	t.Log([3]int{})
-	t.Log([...][3]int{{1,2,3}, {1,2,3}})
+	t.Log([...][3]int{{1, 2, 3}, {1, 2, 3}})
 	//Error example
 	//t.Log([...][...]int{{1,2,3}, {1,2,3}})
 
 	var i int
 	t.Log(i == 0)
 
-	type Foo struct {}
+	type Foo struct{}
 	var bar *Foo
 	t.Log(bar == nil)
+}
+
+func TestTypeConversion(t *testing.T) {
+	var i64 int64
+	i64 = 1
+
+	var i int
+	i = 1
+
+	//error
+	//i64 = i
+
+	t.Log(i64)
+	t.Log(i)
 }

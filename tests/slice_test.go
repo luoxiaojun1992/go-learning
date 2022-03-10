@@ -57,4 +57,15 @@ func TestEmptySlice(t *testing.T) {
 	var arr5 []int
 	t.Log(arr5 == nil)
 	t.Log(append(arr5, 1))
+
+	var arr6 []int
+	t.Log(append([]int{1, 2, 3}, arr6...))
+
+	var arr7 []int
+	t.Log(len(arr7))
+
+	var arr8 []int
+	for i := range arr8 {
+		t.Log(i)
+	}
 }

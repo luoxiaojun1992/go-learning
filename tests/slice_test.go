@@ -3,14 +3,14 @@ package tests
 import "testing"
 
 func TestSliceAssign(t *testing.T) {
-	slice1 := []int{1,2,3}
-	slice2 := []int{1,2,3,4}
+	slice1 := []int{1, 2, 3}
+	slice2 := []int{1, 2, 3, 4}
 	slice1 = slice2
 	t.Log(slice1)
 }
 
 func TestArraySlice(t *testing.T) {
-	arr1 := [...]int{1,2,3,4,5}
+	arr1 := [...]int{1, 2, 3, 4, 5}
 	slice1 := arr1[1:3:3]
 	t.Log(len(arr1))
 	t.Log(cap(arr1))
@@ -19,9 +19,9 @@ func TestArraySlice(t *testing.T) {
 	t.Log(cap(slice1))
 }
 
-func TestMapSlice(t *testing.T)  {
+func TestMapSlice(t *testing.T) {
 	s := make([]map[string]string, 5)
-	s[0] = map[string]string{"foo":"bar"}
+	s[0] = map[string]string{"foo": "bar"}
 	t.Log(s)
 }
 
@@ -68,4 +68,10 @@ func TestEmptySlice(t *testing.T) {
 	for i := range arr8 {
 		t.Log(i)
 	}
+}
+
+func TestSliceInMap(t *testing.T) {
+	m1 := make(map[string][]string)
+	m1["foo"] = append(m1["foo"], "bar")
+	t.Log(m1)
 }

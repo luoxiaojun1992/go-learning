@@ -94,3 +94,14 @@ func TestTypeConversion(t *testing.T) {
 	t.Log(i64)
 	t.Log(i)
 }
+
+func TestTypeAssertion(t *testing.T) {
+	type I interface {
+	}
+
+	var s interface{}
+	s = "foo"
+
+	_, ok := s.(I)
+	t.Log(ok)
+}
